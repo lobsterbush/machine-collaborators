@@ -24,6 +24,9 @@ export function Footer() {
               <Link href="/sessions" className="text-sm text-parchment/70 hover:text-parchment transition-colors">
                 Sessions
               </Link>
+              <Link href="/nominate" className="text-sm text-parchment/70 hover:text-parchment transition-colors">
+                Speak
+              </Link>
               <Link href="/about" className="text-sm text-parchment/70 hover:text-parchment transition-colors">
                 About
               </Link>

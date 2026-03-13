@@ -3,14 +3,9 @@
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { FadeIn, SplitText, Marquee, Stagger, StaggerItem, CountUp } from '@/components/Animated'
+import { FadeIn, SplitText, Stagger, StaggerItem, CountUp } from '@/components/Animated'
 import { getNextSession, getUpcomingSessions } from '@/data/sessions'
 import { useRef } from 'react'
-
-const marqueeWords = [
-  'Workflows', 'Authorship', 'Pedagogy', 'Ethics', 'Evidence',
-  'Method', 'Writing', 'Judgment', 'Creativity', 'Practice',
-]
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-US', {
@@ -92,13 +87,13 @@ export function HomeClient() {
             <div className="flex gap-4">
               <Link
                 href="/subscribe"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-colors"
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-all duration-300"
               >
-                Subscribe <ArrowRight size={14} />
+                Subscribe <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/sessions"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-parchment/30 text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-parchment hover:text-ink transition-colors"
+                className="group inline-flex items-center gap-2 px-8 py-4 border border-parchment/30 text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-parchment hover:text-ink transition-all duration-300"
               >
                 Sessions
               </Link>
@@ -114,18 +109,6 @@ export function HomeClient() {
           transition={{ duration: 1.2, delay: 1.2 }}
         />
       </section>
-
-      {/* ========== MARQUEE ========== */}
-      <Marquee className="py-6 bg-ink border-t border-parchment/10" speed={25}>
-        <div className="flex items-center gap-8 px-4">
-          {marqueeWords.map((word, i) => (
-            <span key={i} className="font-serif text-2xl md:text-3xl italic text-parchment/30 whitespace-nowrap">
-              {word}
-              <span className="inline-block w-2 h-2 rounded-full bg-terracotta/40 mx-8 align-middle" />
-            </span>
-          ))}
-        </div>
-      </Marquee>
 
       {/* ========== WHAT IS THIS — FULL WIDTH ========== */}
       <section className="py-28 md:py-40">
@@ -221,16 +204,16 @@ export function HomeClient() {
           <Stagger className="space-y-0" staggerDelay={0.08}>
             {upcoming.map((session, i) => (
               <StaggerItem key={session.id}>
-                <Link href="/sessions" className="group block">
-                  <div className="py-8 md:py-10 border-b border-ink/8 flex items-start gap-6 md:gap-10">
+              <Link href="/sessions" className="group block">
+                  <div className="py-8 md:py-10 border-b border-ink/8 flex items-start gap-6 md:gap-10 transition-all duration-300 group-hover:pl-4">
                     {/* Big number */}
-                    <span className="font-serif text-6xl md:text-8xl font-bold text-ink/[0.06] leading-none flex-shrink-0 w-20 md:w-28">
+                    <span className="font-serif text-6xl md:text-8xl font-bold text-ink/[0.06] leading-none flex-shrink-0 w-20 md:w-28 transition-colors duration-300 group-hover:text-terracotta/20">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     {/* Content */}
                     <div className="flex-1 min-w-0 pt-2">
                       <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-2">
-                        <h3 className="font-serif text-xl md:text-2xl font-bold text-ink group-hover:text-terracotta transition-colors leading-tight">
+                        <h3 className="font-serif text-xl md:text-2xl font-bold text-ink group-hover:text-terracotta transition-colors duration-300 leading-tight">
                           {session.title}
                         </h3>
                         <span className="editorial-label text-warm-gray-light flex-shrink-0">
@@ -241,6 +224,10 @@ export function HomeClient() {
                         {session.description}
                       </p>
                     </div>
+                    {/* Arrow that appears on hover */}
+                    <span className="hidden md:flex items-center self-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0 text-terracotta">
+                      <ArrowRight size={20} />
+                    </span>
                   </div>
                 </Link>
               </StaggerItem>
@@ -285,14 +272,14 @@ export function HomeClient() {
               },
             ].map((item) => (
               <StaggerItem key={item.number}>
-                <div>
+                <div className="group cursor-default">
                   <CountUp
                     target={item.number}
-                    className="font-serif text-7xl md:text-9xl font-bold text-parchment/[0.08] block mb-4 leading-none"
+                    className="font-serif text-7xl md:text-9xl font-bold text-parchment/[0.08] block mb-4 leading-none transition-colors duration-500 group-hover:text-terracotta/20"
                     duration={1.5}
                     prefix="0"
                   />
-                  <h3 className="font-serif text-2xl font-bold text-parchment mb-4">
+                  <h3 className="font-serif text-2xl font-bold text-parchment mb-4 transition-colors duration-300 group-hover:text-terracotta-light">
                     {item.title}
                   </h3>
                   <p className="text-parchment/60 text-base leading-relaxed">
@@ -371,12 +358,12 @@ export function HomeClient() {
             <p className="text-parchment/50 text-lg max-w-lg mb-12">
               Session announcements with the topic, speaker, and Zoom link. That&apos;s it.
             </p>
-            <Link
-              href="/subscribe"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-colors"
-            >
-              Subscribe <ArrowRight size={14} />
-            </Link>
+              <Link
+                href="/subscribe"
+                className="group inline-flex items-center gap-3 px-10 py-5 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-all duration-300 hover:gap-5"
+              >
+                Subscribe <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
           </FadeIn>
         </div>
       </section>

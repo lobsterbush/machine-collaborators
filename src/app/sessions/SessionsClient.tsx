@@ -17,7 +17,7 @@ function formatDate(iso: string) {
 
 function SessionRow({ session }: { session: Session }) {
   return (
-    <div className="group py-10 border-b border-ink/10 last:border-b-0">
+    <div className="group py-10 border-b border-ink/10 last:border-b-0 transition-all duration-300 hover:bg-ink/[0.02] hover:px-4">
       <div className="grid md:grid-cols-12 gap-6">
         {/* Date column */}
         <div className="md:col-span-3">
