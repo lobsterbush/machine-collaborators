@@ -302,13 +302,13 @@ export function HomeClient() {
         </div>
       </section>
 
-      {/* ========== ORGANIZER ========== */}
+      {/* ========== CONVENER ========== */}
       <section className="py-24 md:py-32">
         <div className="mc-container">
           <div className="grid md:grid-cols-12 gap-12">
             <div className="md:col-span-4">
               <FadeIn direction="left">
-                <p className="editorial-label mb-4">Organizer</p>
+                <p className="editorial-label mb-4">Convener</p>
                 <hr className="editorial-rule-accent" />
               </FadeIn>
             </div>
@@ -318,10 +318,13 @@ export function HomeClient() {
                   Charles Crabtree
                 </h2>
                 <p className="editorial-body max-w-2xl mb-4">
-                  Senior Lecturer, School of Social Sciences, Monash University and K-Club Professor, University College, Korea University.
+                  Senior Lecturer (Associate Professor), School of Social Sciences, Monash University and K-Club Professor, University College, Korea University.
+                </p>
+                <p className="editorial-body max-w-2xl mb-4">
+                  Social scientist studying how social boundaries, identity, and conflict shape political behavior — using AI and computational methods to measure and reduce discrimination across societies. His work appears in over 40 journals, including the <em>American Journal of Political Science</em>, <em>American Political Science Review</em>, <em>Nature</em>, <em>Nature Human Behavior</em>, and <em>PNAS</em>.
                 </p>
                 <p className="editorial-body max-w-2xl mb-8">
-                  Research interests include intergroup relations, conflict, and the politics of representation. Machine Collaborators grows from a conviction that how scholars engage with AI tools matters — and that we should talk about it openly.
+                  Machine Collaborators grows from a conviction that how scholars engage with AI tools matters — and that we should examine these practices openly rather than treating them as private shortcuts or guilty secrets.
                 </p>
                 <Link
                   href="/about"

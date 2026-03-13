@@ -121,18 +121,38 @@ export function AboutClient() {
 
               <FadeIn delay={0.45}>
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-ink mb-6">
-                  Organizer
+                  Convener
                 </h2>
                 <p className="editorial-body mb-4">
-                  <strong>Charles Crabtree</strong> is a Senior Lecturer in the School of
+                  <strong>Charles Crabtree</strong> is a Senior Lecturer (Associate Professor) in the School of
                   Social Sciences at Monash University and K-Club Professor at University
                   College, Korea University.
                 </p>
+                <p className="editorial-body mb-4">
+                  He studies how social boundaries — race, ethnicity, class, disability, nationality — get
+                  constructed, politicized, and contested, with a focus on measuring discrimination and bias
+                  using computational text analysis, machine learning, and large language models alongside
+                  experiments. He runs the{' '}
+                  <a href="https://needslab.org" target="_blank" rel="noopener noreferrer">
+                    Fundamental Needs Lab
+                  </a>.
+                </p>
+                <p className="editorial-body mb-4">
+                  His work appears in over 40 journals, including the <em>American Journal of Political Science</em>,{' '}
+                  <em>American Political Science Review</em>, <em>British Journal of Political Science</em>,{' '}
+                  <em>Journal of Politics</em>, <em>Nature</em>, <em>Nature Human Behavior</em>,{' '}
+                  <em>Political Analysis</em>, <em>Public Administration Review</em>, and <em>PNAS</em>.
+                  He also writes for public audiences in outlets like <em>The Atlantic</em>,{' '}
+                  <em>Foreign Policy</em>, <em>The Diplomat</em>, and <em>South China Morning Post</em>.
+                </p>
+                <p className="editorial-body mb-4">
+                  He serves as Associate Editor at the <em>Australian Journal of Political Science</em>{' '}
+                  and is Secretary of the Australian Society for Quantitative Political Science.
+                </p>
                 <p className="editorial-body mb-8">
-                  His research focuses on intergroup relations, conflict, and the politics
-                  of representation. Machine Collaborators grows from a conviction that how
-                  scholars engage with AI tools matters — and that we should examine these
-                  practices openly rather than treating them as private shortcuts or guilty secrets.
+                  Machine Collaborators grows from a conviction that how scholars engage with AI tools
+                  matters — and that we should examine these practices openly rather than treating them
+                  as private shortcuts or guilty secrets.
                 </p>
                 <Link
                   href="/subscribe"

@@ -36,7 +36,7 @@ export function Footer() {
           {/* Contact */}
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-terracotta">
-              Organizer
+              Convener
             </p>
             <p className="text-sm leading-relaxed text-parchment/70">
               Charles Crabtree
