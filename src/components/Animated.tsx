@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef, type ReactNode } from 'react'
+import { useRef, useState, useEffect, type ReactNode } from 'react'
 
 /* ============================
    FADE-IN ON SCROLL
@@ -114,6 +114,110 @@ export function Parallax({ children, className = '', speed = 0.3 }: ParallaxProp
 
 export function GrainOverlay() {
   return <div className="grain-overlay" aria-hidden="true" />
+}
+
+/* ============================
+   HORIZONTAL MARQUEE
+   ============================ */
+
+interface MarqueeProps {
+  children: ReactNode
+  className?: string
+  speed?: number
+}
+
+export function Marquee({ children, className = '', speed = 30 }: MarqueeProps) {
+  return (
+    <div className={`overflow-hidden ${className}`}>
+      <div
+        className="marquee-track"
+        style={{ animationDuration: `${speed}s` }}
+      >
+        {children}
+        {children}
+      </div>
+    </div>
+  )
+}
+
+/* ============================
+   SPLIT TEXT (character reveal)
+   ============================ */
+
+interface SplitTextProps {
+  text: string
+  className?: string
+  tag?: 'h1' | 'h2' | 'h3' | 'p' | 'span'
+  charDelay?: number
+}
+
+export function SplitText({ text, className = '', tag: Tag = 'h1', charDelay = 0.03 }: SplitTextProps) {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: '-40px' })
+  const chars = text.split('')
+
+  return (
+    <div ref={ref} className="overflow-hidden">
+      <Tag className={className}>
+        {chars.map((char, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, y: 80 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: 0.6,
+              delay: i * charDelay,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+            className="inline-block"
+            style={{ whiteSpace: char === ' ' ? 'pre' : undefined }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </Tag>
+    </div>
+  )
+}
+
+/* ============================
+   COUNT UP
+   ============================ */
+
+interface CountUpProps {
+  target: number
+  className?: string
+  duration?: number
+  prefix?: string
+  suffix?: string
+}
+
+export function CountUp({ target, className = '', duration = 2, prefix = '', suffix = '' }: CountUpProps) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(ref, { once: true })
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!isInView) return
+    let start = 0
+    const step = target / (duration * 60)
+    const id = setInterval(() => {
+      start += step
+      if (start >= target) {
+        setCount(target)
+        clearInterval(id)
+      } else {
+        setCount(Math.floor(start))
+      }
+    }, 1000 / 60)
+    return () => clearInterval(id)
+  }, [isInView, target, duration])
+
+  return (
+    <span ref={ref} className={className}>
+      {prefix}{count}{suffix}
+    </span>
+  )
 }
 
 /* ============================

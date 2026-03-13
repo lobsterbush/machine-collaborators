@@ -8,7 +8,7 @@ export function AboutClient() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-16 pb-12">
+      <section className="pt-28 pb-12">
         <div className="mc-container">
           <FadeIn>
             <p className="editorial-label mb-4">About</p>

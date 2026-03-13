@@ -66,7 +66,7 @@ export default function RootLayout({
       >
         <GrainOverlay />
         <Header />
-        <main className="pt-16 min-h-screen">{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

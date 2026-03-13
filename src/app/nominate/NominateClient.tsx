@@ -47,7 +47,7 @@ export function NominateClient() {
 
   return (
     <>
-      <section className="pt-16 pb-24 min-h-[70vh]">
+      <section className="pt-28 pb-24 min-h-[70vh]">
         <div className="mc-container max-w-2xl">
           <FadeIn>
             <p className="editorial-label mb-4">Speak</p>
