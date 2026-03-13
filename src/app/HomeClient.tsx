@@ -305,6 +305,66 @@ export function HomeClient() {
         </div>
       </section>
 
+      {/* ========== SPEAK — CALL FOR SPEAKERS ========== */}
+      <section className="py-28 md:py-40 bg-ink">
+        <div className="mc-container">
+          <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+            <div className="md:col-span-7">
+              <FadeIn>
+                <p className="editorial-label text-terracotta mb-6">Speak</p>
+                <h2 className="editorial-headline text-parchment mb-8">
+                  Share what you&apos;ve learned.
+                </h2>
+                <p className="text-parchment/60 text-lg leading-relaxed mb-6">
+                  The best sessions come from researchers with real stories — tools that surprised you, workflows that failed, questions you can&apos;t stop thinking about.
+                </p>
+                <p className="text-parchment/60 text-lg leading-relaxed mb-10">
+                  Nominate yourself or suggest someone whose experience would make a great conversation.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href="/nominate"
+                    className="group inline-flex items-center gap-2 px-8 py-4 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-all duration-300"
+                  >
+                    Nominate a Speaker <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                  <Link
+                    href="/nominate"
+                    className="group inline-flex items-center gap-2 px-8 py-4 border border-parchment/30 text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-parchment hover:text-ink transition-all duration-300"
+                  >
+                    Nominate Yourself
+                  </Link>
+                </div>
+              </FadeIn>
+            </div>
+            <div className="md:col-span-5 hidden md:block">
+              <FadeIn delay={0.2}>
+                <div className="space-y-4">
+                  {[
+                    'AI in research workflows',
+                    'Writing with AI',
+                    'Authorship & attribution',
+                    'AI failures & limitations',
+                    'Pedagogy & teaching',
+                    'Computational methods',
+                  ].map((topic) => (
+                    <div
+                      key={topic}
+                      className="group/tag flex items-center gap-3 py-3 border-b border-parchment/10 cursor-default"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-terracotta/40 transition-colors duration-300 group-hover/tag:bg-terracotta" />
+                      <span className="font-serif text-lg text-parchment/50 transition-colors duration-300 group-hover/tag:text-parchment">
+                        {topic}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ========== CONVENER — ASYMMETRIC ========== */}
       <section className="py-28 md:py-40 bg-cream">
         <div className="mc-container">
@@ -327,20 +387,12 @@ export function HomeClient() {
                 <p className="editorial-body mb-10">
                   Machine Collaborators grows from a conviction that how scholars engage with AI tools matters — and that we should examine these practices openly.
                 </p>
-                <div className="flex gap-4">
-                  <Link
-                    href="/about"
-                    className="editorial-label text-terracotta hover-line inline-flex items-center gap-2"
-                  >
-                    More <ArrowRight size={12} />
-                  </Link>
-                  <Link
-                    href="/nominate"
-                    className="editorial-label text-ink hover-line inline-flex items-center gap-2"
-                  >
-                    Nominate a Speaker <ArrowRight size={12} />
-                  </Link>
-                </div>
+                <Link
+                  href="/about"
+                  className="editorial-label text-terracotta hover-line inline-flex items-center gap-2"
+                >
+                  More <ArrowRight size={12} />
+                </Link>
               </FadeIn>
             </div>
           </div>
