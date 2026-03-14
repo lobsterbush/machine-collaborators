@@ -150,9 +150,9 @@ export function AboutClient() {
                   and is Secretary of the Australian Society for Quantitative Political Science.
                 </p>
                 <p className="editorial-body mb-8">
-                  Machine Collaborators grows from a conviction that how scholars engage with AI tools
-                  matters — and that we should examine these practices openly rather than treating them
-                  as private shortcuts or guilty secrets.
+                  Machine Collaborators grows from an observation that these tools are already embedded
+                  in scholarly practice — and that examining how, openly, is more useful than treating
+                  the subject as taboo.
                 </p>
                 <Link
                   href="/subscribe"

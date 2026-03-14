@@ -119,17 +119,17 @@ export function HomeClient() {
           <div className="mc-container-narrow !px-0">
             <FadeIn delay={0.1}>
               <p className="editorial-body-lg mb-10">
-                Machine Collaborators is a global conversation series where researchers share how they are actually using AI in research, writing, teaching, and academic life.
+                Researchers are already using AI to write, code, analyze data, and teach. The interesting question is not whether they should, but what happens when they do.
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="editorial-body-lg mb-10">
-                Every two weeks, we host an open conversation. No polished keynotes. No vendor demos. Just scholars talking honestly about what works, what doesn&apos;t, and what questions keep emerging.
+                Machine Collaborators is a bi-weekly conversation series. Every session, a researcher presents how AI has entered their actual practice — then we discuss it openly.
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
               <p className="font-serif text-2xl md:text-3xl italic text-ink/70 leading-relaxed">
-                This isn&apos;t about hype or panic. It&apos;s about examining what this relationship actually looks like in scholarly life.
+                Not a tech demo. Not a policy debate. A seminar about practice.
               </p>
             </FadeIn>
           </div>
@@ -143,7 +143,7 @@ export function HomeClient() {
             <blockquote className="max-w-4xl">
               <span className="block font-serif text-6xl md:text-8xl text-terracotta/15 leading-none mb-6 select-none">&ldquo;</span>
               <p className="font-serif text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.15] text-parchment">
-                Not &ldquo;AI is amazing,&rdquo; not &ldquo;AI is evil,&rdquo; but &ldquo;let&apos;s examine what this relationship actually looks like in scholarly life.&rdquo;
+                The tools are already in the workflow. The question is whether we examine that or pretend otherwise.
               </p>
             </blockquote>
           </FadeIn>
@@ -187,7 +187,7 @@ export function HomeClient() {
           <FadeIn className="mb-20">
             <div className="flex items-end justify-between">
               <SplitText
-                text="On the Horizon"
+                text="Upcoming"
                 className="editorial-headline text-ink"
                 tag="h2"
                 charDelay={0.025}
@@ -250,26 +250,26 @@ export function HomeClient() {
       <section className="py-28 md:py-40 bg-ink text-parchment">
         <div className="mc-container">
           <FadeIn className="mb-20">
-            <p className="editorial-label text-ochre mb-6">How It Works</p>
-            <h2 className="editorial-headline text-parchment">Three principles.</h2>
+            <p className="editorial-label text-ochre mb-6">Format</p>
+            <h2 className="editorial-headline text-parchment">How sessions run.</h2>
           </FadeIn>
 
           <Stagger className="grid md:grid-cols-3 gap-16" staggerDelay={0.15}>
             {[
               {
                 number: 1,
-                title: 'Open & Global',
-                body: 'Free, on Zoom, every two weeks. Anyone in the world can join — faculty, graduate students, postdocs, practitioners.',
+                title: 'Open',
+                body: 'Free, on Zoom, bi-weekly. Open to faculty, graduate students, postdocs, and research staff worldwide.',
               },
               {
                 number: 2,
-                title: 'Conversation, Not Lecture',
-                body: 'Short presentations followed by real discussion. We want honest accounts of practice, not rehearsed talks.',
+                title: 'Practitioner-Led',
+                body: 'A short presentation on a real workflow or experience, followed by open discussion. No rehearsed keynotes.',
               },
               {
                 number: 3,
-                title: 'Intellectually Serious',
-                body: 'We treat AI as a research question, not just a tool. Authorship, method, pedagogy, evidence, and ethics are all on the table.',
+                title: 'Substantive',
+                body: 'We treat AI as a subject of inquiry, not just an instrument. Authorship, method, evidence, pedagogy — all in scope.',
               },
             ].map((item) => (
               <StaggerItem key={item.number}>
@@ -299,7 +299,7 @@ export function HomeClient() {
           <FadeIn>
             <blockquote className="max-w-4xl mx-auto text-center">
               <p className="font-serif text-3xl md:text-5xl font-normal leading-[1.2] text-ink">
-                What does it mean to work with these systems as part of knowledge production?
+                What changes when a language model becomes part of the research process?
               </p>
             </blockquote>
           </FadeIn>
@@ -314,13 +314,13 @@ export function HomeClient() {
               <FadeIn>
                 <p className="editorial-label text-ochre mb-6">Speak</p>
                 <h2 className="editorial-headline text-ink mb-8">
-                  Share what you&apos;ve learned.
+                  Present your work.
                 </h2>
                 <p className="text-warm-gray-dark text-lg leading-relaxed mb-6">
-                  The best sessions come from researchers with real stories — tools that surprised you, workflows that failed, questions you can&apos;t stop thinking about.
+                  We&apos;re looking for researchers with firsthand experience — a workflow that worked, one that didn&apos;t, a methodological question you&apos;re still sorting out.
                 </p>
                 <p className="text-warm-gray-dark text-lg leading-relaxed mb-10">
-                  Nominate yourself or suggest someone whose experience would make a great conversation.
+                  Nominate yourself or suggest a colleague.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link
@@ -386,7 +386,7 @@ export function HomeClient() {
                   Social scientist studying how social boundaries, identity, and conflict shape political behavior — using AI and computational methods to measure and reduce discrimination across societies. His work appears in over 40 journals, including the <em>American Journal of Political Science</em>, <em>American Political Science Review</em>, <em>Nature</em>, <em>Nature Human Behavior</em>, and <em>PNAS</em>.
                 </p>
                 <p className="editorial-body mb-10">
-                  Machine Collaborators grows from a conviction that how scholars engage with AI tools matters — and that we should examine these practices openly.
+                  This series started from a simple observation: researchers are using these tools, but rarely discussing how — at least not in public.
                 </p>
                 <Link
                   href="/about"
@@ -406,10 +406,10 @@ export function HomeClient() {
           <FadeIn>
             <p className="editorial-label text-terracotta mb-10">Join</p>
             <h2 className="editorial-display text-parchment mb-8">
-              Don&apos;t miss a<br />conversation.
+              Get session<br />announcements.
             </h2>
             <p className="text-parchment/80 text-lg max-w-lg mb-12">
-              Session announcements with the topic, speaker, and Zoom link. That&apos;s it.
+              Topic, speaker, date, and Zoom link. Bi-weekly. Nothing else.
             </p>
               <Link
                 href="/subscribe"

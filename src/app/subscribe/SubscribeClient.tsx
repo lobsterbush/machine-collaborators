@@ -25,13 +25,11 @@ export function SubscribeClient() {
           <FadeIn>
             <p className="editorial-label mb-4">Subscribe</p>
             <h1 className="editorial-headline mb-6">
-              Stay in the Loop
+              Session Announcements
             </h1>
             <hr className="editorial-rule-accent mb-8" />
             <p className="editorial-body mb-12">
-              Get notified when new sessions are announced. No spam — just the
-              topic, speaker, date, and Zoom link, delivered to your inbox every
-              two weeks.
+              Bi-weekly email with the next session&apos;s topic, speaker, and Zoom link. Nothing else.
             </p>
           </FadeIn>
 
@@ -124,11 +122,10 @@ export function SubscribeClient() {
                   <Check size={28} className="text-sage" />
                 </div>
                 <h2 className="font-serif text-3xl font-bold text-ink mb-4">
-                  You&apos;re In
+                  Subscribed
                 </h2>
                 <p className="editorial-body max-w-md mx-auto">
-                  Thanks for subscribing. You&apos;ll receive session announcements at{' '}
-                  <strong>{email}</strong>. See you in the conversation.
+                  Session announcements will go to <strong>{email}</strong>.
                 </p>
               </motion.div>
             )}

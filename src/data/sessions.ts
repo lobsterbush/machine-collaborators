@@ -19,7 +19,7 @@ export const sessions: Session[] = [
     affiliation: '',
     date: '2026-04-10T10:00:00Z',
     description:
-      'Practitioner lightning talks: researchers share their real workflows, tools, and lessons learned from integrating AI into their daily research practice.',
+      'Lightning talks on real workflows. How are researchers actually integrating language models, code assistants, and other AI tools into daily practice?',
     status: 'upcoming',
   },
   {
@@ -29,47 +29,47 @@ export const sessions: Session[] = [
     affiliation: '',
     date: '2026-04-24T10:00:00Z',
     description:
-      'Who gets credit when AI contributes to a paper? We explore the evolving norms around authorship, disclosure, and intellectual contribution.',
+      'When a model contributes to a paper, who is the author? A discussion of evolving norms around credit, disclosure, and intellectual contribution.',
     status: 'upcoming',
   },
   {
     id: 'session-003',
-    title: 'AI in the Classroom: Pedagogy, Not Policing',
+    title: 'AI in the Classroom',
     speaker: 'TBA',
     affiliation: '',
     date: '2026-05-08T10:00:00Z',
     description:
-      'Moving beyond detection and prohibition. How can instructors design courses that use AI as a pedagogical tool rather than an adversary?',
+      'Course design when students have access to generative AI. What changes in assessment, learning objectives, and the role of the instructor?',
     status: 'upcoming',
   },
   {
     id: 'session-004',
-    title: 'Prompt Engineering for Social Scientists',
+    title: 'Prompting as Method',
     speaker: 'TBA',
     affiliation: '',
     date: '2026-05-22T10:00:00Z',
     description:
-      'Practical strategies for getting useful output from language models in qualitative coding, survey design, literature reviews, and data analysis.',
+      'Strategies for getting useful output from language models in qualitative coding, survey design, literature review, and data analysis.',
     status: 'upcoming',
   },
   {
     id: 'session-005',
-    title: 'When AI Gets It Wrong: Failures, Hallucinations, and What We Learn',
+    title: 'Failures and Hallucinations',
     speaker: 'TBA',
     affiliation: '',
     date: '2026-06-05T10:00:00Z',
     description:
-      'Case studies of AI failures in research contexts. What do breakdowns reveal about the limits of these tools and our reliance on them?',
+      'Case studies of AI failures in research contexts. What breakdowns reveal about the limits of these tools and our dependence on them.',
     status: 'upcoming',
   },
   {
     id: 'session-006',
-    title: 'Writing with AI: Process, Ethics, and Quality',
+    title: 'Writing with AI',
     speaker: 'TBA',
     affiliation: '',
     date: '2026-06-19T10:00:00Z',
     description:
-      'From drafting to revision to polishing: when does AI assistance enhance scholarly writing, and when does it erode it?',
+      'Drafting, revision, co-writing. When does AI assistance improve scholarly prose, and when does it flatten it?',
     status: 'upcoming',
   },
 ]

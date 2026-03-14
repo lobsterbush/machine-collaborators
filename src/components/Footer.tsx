@@ -24,6 +24,9 @@ export function Footer() {
               <Link href="/sessions" className="text-sm text-parchment/70 hover:text-parchment transition-colors">
                 Sessions
               </Link>
+              <Link href="/reading" className="text-sm text-parchment/70 hover:text-parchment transition-colors">
+                Reading
+              </Link>
               <Link href="/nominate" className="text-sm text-parchment/70 hover:text-parchment transition-colors">
                 Speak
               </Link>
@@ -58,9 +61,6 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-parchment/70">
           <p>&copy; {new Date().getFullYear()} Machine Collaborators</p>
-          <p>
-            Built with intention, not just automation.
-          </p>
         </div>
       </div>
     </footer>

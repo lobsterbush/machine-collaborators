@@ -56,14 +56,13 @@ export function NominateClient() {
             </h1>
             <hr className="editorial-rule-accent mb-8" />
             <p className="editorial-body mb-4">
-              Machine Collaborators is built on the idea that the most interesting
-              insights come from researchers who are actually working with AI — not
-              just theorizing about it. We want to hear from you.
+              Sessions work best when the presenter has direct experience with
+              AI in their research, teaching, or writing — something concrete
+              to discuss rather than a position to argue.
             </p>
             <p className="editorial-body mb-12">
-              Nominate yourself or suggest someone whose experience would make a
-              great conversation. We&apos;re looking for honest accounts of practice,
-              not polished sales pitches.
+              Nominate yourself or suggest a colleague. We&apos;ll follow up about
+              scheduling and format.
             </p>
           </FadeIn>
 
@@ -279,8 +278,8 @@ export function NominateClient() {
                 </h2>
                 <p className="editorial-body max-w-md mx-auto">
                   {nominationType === 'self'
-                    ? "Thanks for putting yourself forward. We'll be in touch at the email you provided to discuss scheduling."
-                    : "Thanks for the suggestion. We'll reach out to them and follow up with you."}
+                    ? "Received. We'll be in touch about scheduling."
+                    : "Received. We'll follow up with them and with you."}
                 </p>
               </motion.div>
             )}
