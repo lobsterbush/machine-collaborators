@@ -19,6 +19,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://lobsterbush.github.io/machine-collaborators'),
   title: {
     default: 'Machine Collaborators',
     template: '%s | Machine Collaborators',

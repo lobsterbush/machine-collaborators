@@ -149,14 +149,20 @@ export function AboutClient() {
                   He serves as Associate Editor at the <em>Australian Journal of Political Science</em>{' '}
                   and is Secretary of the Australian Society for Quantitative Political Science.
                 </p>
-                <p className="editorial-body mb-8">
+                <p className="editorial-body mb-4">
                   Machine Collaborators grows from an observation that these tools are already embedded
                   in scholarly practice — and that examining how, openly, is more useful than treating
                   the subject as taboo.
                 </p>
+                <p className="editorial-body mb-8">
+                  Questions or ideas? Reach out at{' '}
+                  <a href="mailto:charles.crabtree@monash.edu">
+                    charles.crabtree@monash.edu
+                  </a>.
+                </p>
                 <Link
                   href="/subscribe"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-terracotta text-mc-white font-sans font-semibold text-sm uppercase tracking-widest hover:bg-terracotta-dark transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-colors"
                 >
                   Subscribe <ArrowRight size={16} />
                 </Link>

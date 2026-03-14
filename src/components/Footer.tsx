@@ -54,6 +54,12 @@ export function Footer() {
             <p className="text-sm text-parchment/80">
               K-Club Professor, University College, Korea University
             </p>
+            <a
+              href="mailto:charles.crabtree@monash.edu"
+              className="text-sm text-terracotta hover:text-terracotta-light transition-colors inline-block mt-2"
+            >
+              charles.crabtree@monash.edu
+            </a>
           </div>
         </div>
 

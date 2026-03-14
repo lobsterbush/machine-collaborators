@@ -24,7 +24,11 @@ function formatDateLong(iso: string) {
 
 export function HomeClient() {
   const nextSession = getNextSession()
-  const upcoming = getUpcomingSessions().slice(0, 6)
+  // Skip the first session in the upcoming list if it's the same as the spotlighted next session
+  const allUpcoming = getUpcomingSessions()
+  const upcoming = nextSession
+    ? allUpcoming.filter((s) => s.id !== nextSession.id).slice(0, 5)
+    : allUpcoming.slice(0, 6)
   const heroRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -228,63 +232,6 @@ export function HomeClient() {
         </div>
       </section>
 
-      {/* ========== FORMAT — BIG NUMBERS, INK BACKGROUND ========== */}
-      <section className="py-28 md:py-40 bg-ink text-parchment">
-        <div className="mc-container">
-          <FadeIn className="mb-20">
-            <p className="editorial-label text-ochre mb-6">Format</p>
-            <h2 className="editorial-headline text-parchment">How sessions run.</h2>
-          </FadeIn>
-
-          <Stagger className="grid md:grid-cols-3 gap-16" staggerDelay={0.15}>
-            {[
-              {
-                number: 1,
-                title: 'Open',
-                body: 'Free, on Zoom, bi-weekly. Open to faculty, graduate students, postdocs, and research staff worldwide.',
-              },
-              {
-                number: 2,
-                title: 'Practitioner-Led',
-                body: 'A short presentation on a real workflow or experience, followed by open discussion. No rehearsed keynotes.',
-              },
-              {
-                number: 3,
-                title: 'Substantive',
-                body: 'We treat AI as a subject of inquiry, not just an instrument. Authorship, method, evidence, pedagogy — all in scope.',
-              },
-            ].map((item) => (
-              <StaggerItem key={item.number}>
-                <div className="group cursor-default">
-                  <span className="font-serif text-7xl md:text-9xl font-bold text-parchment/[0.08] block mb-4 leading-none transition-colors duration-500 group-hover:text-terracotta/20">
-                    0{item.number}
-                  </span>
-                  <h3 className="font-serif text-2xl font-bold text-parchment mb-4 transition-colors duration-300 group-hover:text-terracotta-light">
-                    {item.title}
-                  </h3>
-                  <p className="text-parchment/80 text-base leading-relaxed">
-                    {item.body}
-                  </p>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* ========== SECOND PULL QUOTE ========== */}
-      <section className="py-24 md:py-36 bg-sage-light">
-        <div className="mc-container">
-          <FadeIn>
-            <blockquote className="max-w-4xl mx-auto text-center">
-              <p className="font-serif text-3xl md:text-5xl font-normal leading-[1.2] text-ink">
-                What changes when a language model becomes part of the research process?
-              </p>
-            </blockquote>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* ========== SPEAK — CALL FOR SPEAKERS ========== */}
       <section className="py-28 md:py-40 bg-cream">
         <div className="mc-container">
@@ -377,7 +324,7 @@ export function HomeClient() {
           <FadeIn>
             <p className="editorial-label text-terracotta mb-10">Join</p>
             <h2 className="editorial-display text-parchment mb-8">
-              Get session<br />announcements.
+              Get session announcements.
             </h2>
             <p className="text-parchment/80 text-lg max-w-lg mb-12">
               Topic, speaker, date, and Zoom link. Bi-weekly. Nothing else.
