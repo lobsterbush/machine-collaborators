@@ -27,7 +27,43 @@ const FEEDS = [
   },
 ]
 
-const PROXY = 'https://api.allorigins.win/raw?url='
+const PROXIES = [
+  (url: string) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+  (url: string) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+  (url: string) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+]
+
+const CACHE_KEY = 'mc-reading-cache'
+const CACHE_TTL = 30 * 60 * 1000 // 30 minutes
+
+interface CachedData {
+  items: FeedItem[]
+  timestamp: number
+}
+
+function getCachedItems(): FeedItem[] | null {
+  try {
+    const raw = sessionStorage.getItem(CACHE_KEY)
+    if (!raw) return null
+    const cached: CachedData = JSON.parse(raw)
+    if (Date.now() - cached.timestamp > CACHE_TTL) {
+      sessionStorage.removeItem(CACHE_KEY)
+      return null
+    }
+    return cached.items
+  } catch {
+    return null
+  }
+}
+
+function setCachedItems(items: FeedItem[]): void {
+  try {
+    const data: CachedData = { items, timestamp: Date.now() }
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify(data))
+  } catch {
+    // sessionStorage full or unavailable — ignore
+  }
+}
 
 function extractSource(title: string): { cleanTitle: string; source: string } {
   const match = title.match(/^(.*)\s-\s([^-]+)$/)
@@ -58,36 +94,44 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
 }
 
-async function fetchFeed(feedUrl: string): Promise<FeedItem[]> {
-  try {
-    const res = await fetch(PROXY + encodeURIComponent(feedUrl))
-    if (!res.ok) return []
-    const text = await res.text()
-    const parser = new DOMParser()
-    const xml = parser.parseFromString(text, 'text/xml')
-    const items = xml.querySelectorAll('item')
-    const results: FeedItem[] = []
+function parseFeedXml(text: string): FeedItem[] {
+  const parser = new DOMParser()
+  const xml = parser.parseFromString(text, 'text/xml')
+  const items = xml.querySelectorAll('item')
+  const results: FeedItem[] = []
 
-    items.forEach((item) => {
-      const rawTitle = item.querySelector('title')?.textContent || ''
-      const { cleanTitle, source } = extractSource(rawTitle)
-      const link = item.querySelector('link')?.textContent || ''
-      const pubDate = item.querySelector('pubDate')?.textContent || ''
-      const desc = item.querySelector('description')?.textContent || ''
+  items.forEach((item) => {
+    const rawTitle = item.querySelector('title')?.textContent || ''
+    const { cleanTitle, source } = extractSource(rawTitle)
+    const link = item.querySelector('link')?.textContent || ''
+    const pubDate = item.querySelector('pubDate')?.textContent || ''
+    const desc = item.querySelector('description')?.textContent || ''
 
-      results.push({
-        title: cleanTitle,
-        link,
-        source,
-        pubDate,
-        description: stripHtml(desc).slice(0, 200),
-      })
+    results.push({
+      title: cleanTitle,
+      link,
+      source,
+      pubDate,
+      description: stripHtml(desc).slice(0, 200),
     })
+  })
 
-    return results
-  } catch {
-    return []
+  return results
+}
+
+async function fetchFeed(feedUrl: string): Promise<FeedItem[]> {
+  for (const makeProxyUrl of PROXIES) {
+    try {
+      const res = await fetch(makeProxyUrl(feedUrl))
+      if (!res.ok) continue
+      const text = await res.text()
+      const items = parseFeedXml(text)
+      if (items.length > 0) return items
+    } catch {
+      continue
+    }
   }
+  return []
 }
 
 function deduplicateByTitle(items: FeedItem[]): FeedItem[] {
@@ -105,16 +149,32 @@ export function ReadingClient() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  async function loadFeeds() {
+  async function loadFeeds(bypassCache = false) {
     setLoading(true)
     setError(false)
+
+    // Try cache first
+    if (!bypassCache) {
+      const cached = getCachedItems()
+      if (cached && cached.length > 0) {
+        setItems(cached)
+        setLoading(false)
+        return
+      }
+    }
+
     try {
       const allResults = await Promise.all(FEEDS.map((f) => fetchFeed(f.url)))
       const merged = allResults.flat()
       merged.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
       const deduped = deduplicateByTitle(merged)
-      setItems(deduped.slice(0, 40))
-      if (deduped.length === 0) setError(true)
+      const final = deduped.slice(0, 40)
+      setItems(final)
+      if (final.length > 0) {
+        setCachedItems(final)
+      } else {
+        setError(true)
+      }
     } catch {
       setError(true)
     } finally {
@@ -159,7 +219,7 @@ export function ReadingClient() {
                 Could not load feeds.
               </p>
               <button
-                onClick={loadFeeds}
+                onClick={() => loadFeeds(true)}
                 className="editorial-label text-terracotta hover:text-terracotta-dark transition-colors"
               >
                 Try Again

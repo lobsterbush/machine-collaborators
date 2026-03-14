@@ -1,9 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, AlertCircle } from 'lucide-react'
 import { FadeIn } from '@/components/Animated'
 import { motion, AnimatePresence } from 'framer-motion'
+import { config, formspreeEndpoint } from '@/config'
 
 const topicAreas = [
   'AI in research workflows',
@@ -20,6 +21,8 @@ const topicAreas = [
 
 export function NominateClient() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [nominationType, setNominationType] = useState<'self' | 'other'>('self')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -39,10 +42,46 @@ export function NominateClient() {
     )
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    // TODO: integrate with email service or form backend
-    setSubmitted(true)
+    setSubmitting(true)
+    setError('')
+    try {
+      const payload = nominationType === 'self'
+        ? {
+            type: 'Self-nomination',
+            name,
+            email,
+            affiliation,
+            topicAreas: selectedAreas.join(', ') || 'None selected',
+            proposedTopic: topic || 'Not provided',
+            description,
+            _subject: `MC speaker nomination (self): ${name}`,
+          }
+        : {
+            type: 'Nominating someone else',
+            submitterName: name,
+            submitterEmail: email,
+            nomineeName,
+            nomineeEmail: nomineeEmail || 'Not provided',
+            nomineeAffiliation: nomineeAffiliation || 'Not provided',
+            topicAreas: selectedAreas.join(', ') || 'None selected',
+            proposedTopic: topic || 'Not provided',
+            description,
+            _subject: `MC speaker nomination: ${nomineeName}`,
+          }
+      const res = await fetch(formspreeEndpoint(config.formspree.nominateFormId), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error('Submission failed')
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Please try again or email us directly.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -252,12 +291,21 @@ export function NominateClient() {
                     />
                   </div>
 
+                  {/* Error */}
+                  {error && (
+                    <div className="flex items-start gap-3 py-3 text-terracotta">
+                      <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
+                      <p className="text-sm">{error}</p>
+                    </div>
+                  )}
+
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 px-10 py-4 bg-terracotta text-mc-white font-sans font-semibold text-sm uppercase tracking-widest hover:bg-terracotta-dark transition-colors"
+                      disabled={submitting}
+                      className="inline-flex items-center gap-2 px-10 py-4 bg-terracotta text-mc-white font-sans font-semibold text-sm uppercase tracking-widest hover:bg-terracotta-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Submit Nomination <ArrowRight size={16} />
+                      {submitting ? 'Submitting…' : 'Submit Nomination'} {!submitting && <ArrowRight size={16} />}
                     </button>
                   </div>
                 </form>

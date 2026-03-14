@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     title: 'Machine Collaborators',
     description:
       'A global conversation series on what happens when researchers work with AI.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Machine Collaborators',
     description:
       'A global conversation series on what happens when researchers work with AI.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.png'],
   },
   icons: {
     icon: '/favicon.svg',

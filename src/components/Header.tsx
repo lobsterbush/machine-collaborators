@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from './Logo'
 
@@ -15,15 +16,39 @@ const navLinks = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/' || pathname === ''
+
+  // On homepage: start transparent over dark hero, then show backdrop after scrolling past hero
+  // On other pages: always show the solid backdrop
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 80)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Dark mode = white text on transparent/dark bg (over hero)
+  // Light mode = ink text on parchment backdrop (scrolled or non-home pages)
+  const showBackdrop = !isHome || scrolled
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          showBackdrop
+            ? 'bg-parchment/95 backdrop-blur-sm shadow-[0_1px_0_rgba(26,26,46,0.08)]'
+            : 'bg-transparent'
+        }`}
+      >
         <div className="mc-container flex items-center justify-between py-6">
-          {/* Wordmark */}
+          {/* Logo */}
           <Link
             href="/"
-            className="text-white"
+            className={`transition-colors duration-300 ${showBackdrop ? 'text-ink' : 'text-parchment'}`}
             aria-label="Machine Collaborators — Home"
           >
             <Logo size={24} />
@@ -35,7 +60,11 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="editorial-label text-white/70 hover:text-white transition-colors"
+                className={`editorial-label transition-colors duration-300 ${
+                  showBackdrop
+                    ? 'text-warm-gray hover:text-ink'
+                    : 'text-parchment/70 hover:text-parchment'
+                }`}
               >
                 {link.label}
               </Link>
@@ -44,7 +73,7 @@ export function Header() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-white"
+            className={`md:hidden transition-colors duration-300 ${showBackdrop ? 'text-ink' : 'text-parchment'}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >

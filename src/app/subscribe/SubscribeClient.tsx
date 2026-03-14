@@ -1,21 +1,41 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, AlertCircle } from 'lucide-react'
 import { FadeIn } from '@/components/Animated'
 import { motion, AnimatePresence } from 'framer-motion'
+import { config, formspreeEndpoint } from '@/config'
 
 export function SubscribeClient() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [affiliation, setAffiliation] = useState('')
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    // TODO: integrate with email service (Resend, Formspree, etc.)
-    // For now, just show success state
-    setSubmitted(true)
+    setSubmitting(true)
+    setError('')
+    try {
+      const res = await fetch(formspreeEndpoint(config.formspree.subscribeFormId), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          affiliation: affiliation || 'Not provided',
+          _subject: `New MC subscriber: ${name}`,
+        }),
+      })
+      if (!res.ok) throw new Error('Submission failed')
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Please try again or email us directly.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -100,13 +120,22 @@ export function SubscribeClient() {
                   />
                 </div>
 
+                {/* Error */}
+                {error && (
+                  <div className="flex items-start gap-3 py-3 text-terracotta">
+                    <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
+                    <p className="text-sm">{error}</p>
+                  </div>
+                )}
+
                 {/* Submit */}
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 px-10 py-4 bg-terracotta text-mc-white font-sans font-semibold text-sm uppercase tracking-widest hover:bg-terracotta-dark transition-colors"
+                    disabled={submitting}
+                    className="inline-flex items-center gap-2 px-10 py-4 bg-terracotta text-mc-white font-sans font-semibold text-sm uppercase tracking-widest hover:bg-terracotta-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Subscribe <ArrowRight size={16} />
+                    {submitting ? 'Submitting…' : 'Subscribe'} {!submitting && <ArrowRight size={16} />}
                   </button>
                 </div>
               </motion.form>
