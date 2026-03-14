@@ -41,8 +41,8 @@ export function HomeClient() {
         className="relative min-h-screen flex flex-col justify-end bg-ink overflow-hidden -mt-16 pb-16 md:pb-24"
       >
         {/* Ambient glow */}
-        <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-terracotta/5 rounded-full blur-[160px]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-ochre/4 rounded-full blur-[120px]" />
+          <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-terracotta/10 rounded-full blur-[160px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-ochre/8 rounded-full blur-[120px]" />
 
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="mc-container relative z-10">
           <motion.p
@@ -81,7 +81,7 @@ export function HomeClient() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            <p className="editorial-subhead text-parchment/70 max-w-lg">
+            <p className="editorial-subhead text-parchment max-w-lg">
               What happens when researchers work with AI.
             </p>
             <div className="flex gap-4">
@@ -93,7 +93,7 @@ export function HomeClient() {
               </Link>
               <Link
                 href="/sessions"
-                className="group inline-flex items-center gap-2 px-8 py-4 border border-parchment/30 text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-parchment hover:text-ink transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-8 py-4 border-2 border-parchment text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-parchment hover:text-ink transition-all duration-300"
               >
                 Sessions
               </Link>
@@ -283,7 +283,7 @@ export function HomeClient() {
                   <h3 className="font-serif text-2xl font-bold text-parchment mb-4 transition-colors duration-300 group-hover:text-terracotta-light">
                     {item.title}
                   </h3>
-                  <p className="text-parchment/70 text-base leading-relaxed">
+                  <p className="text-parchment/80 text-base leading-relaxed">
                     {item.body}
                   </p>
                 </div>
@@ -331,7 +331,7 @@ export function HomeClient() {
                   </Link>
                   <Link
                     href="/nominate"
-                    className="group inline-flex items-center gap-2 px-8 py-4 border border-ink/20 text-ink font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ink hover:text-parchment transition-all duration-300"
+                    className="group inline-flex items-center gap-2 px-8 py-4 border-2 border-ink text-ink font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ink hover:text-parchment transition-all duration-300"
                   >
                     Nominate Yourself
                   </Link>
@@ -408,7 +408,7 @@ export function HomeClient() {
             <h2 className="editorial-display text-parchment mb-8">
               Don&apos;t miss a<br />conversation.
             </h2>
-            <p className="text-parchment/70 text-lg max-w-lg mb-12">
+            <p className="text-parchment/80 text-lg max-w-lg mb-12">
               Session announcements with the topic, speaker, and Zoom link. That&apos;s it.
             </p>
               <Link

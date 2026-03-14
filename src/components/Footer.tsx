@@ -10,7 +10,7 @@ export function Footer() {
             <h3 className="font-serif text-2xl font-bold text-parchment">
               Machine Collaborators
             </h3>
-            <p className="text-sm leading-relaxed text-parchment/60">
+            <p className="text-sm leading-relaxed text-parchment/80">
               A global conversation series on what happens when researchers work with AI.
             </p>
           </div>
@@ -48,7 +48,7 @@ export function Footer() {
               <br />
               Monash University
             </p>
-            <p className="text-sm text-parchment/60">
+            <p className="text-sm text-parchment/80">
               K-Club Professor, University College, Korea University
             </p>
           </div>
@@ -56,7 +56,7 @@ export function Footer() {
 
         <hr className="my-10 border-parchment/10" />
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-parchment/60">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-parchment/70">
           <p>&copy; {new Date().getFullYear()} Machine Collaborators</p>
           <p>
             Built with intention, not just automation.
