@@ -54,26 +54,28 @@ export function HomeClient() {
             A Global Conversation Series
           </motion.p>
 
-          <div className="overflow-hidden mb-6">
-            <motion.h1
-              className="editorial-mega text-parchment"
-              initial={{ y: 120 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              Machine
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden mb-12">
-            <motion.h1
-              className="editorial-mega text-parchment italic font-normal"
-              initial={{ y: 120 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1, delay: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              Collaborators
-            </motion.h1>
-          </div>
+          <h1>
+            <div className="overflow-hidden mb-6">
+              <motion.span
+                className="editorial-mega text-parchment block"
+                initial={{ y: 120 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Machine
+              </motion.span>
+            </div>
+            <div className="overflow-hidden mb-12">
+              <motion.span
+                className="editorial-mega text-parchment italic font-normal block"
+                initial={{ y: 120 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1, delay: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Collaborators
+              </motion.span>
+            </div>
+          </h1>
 
           <motion.div
             className="flex flex-col md:flex-row md:items-end md:justify-between gap-8"
@@ -142,7 +144,7 @@ export function HomeClient() {
           <div className="mc-container">
             <FadeIn>
               <p className="editorial-label text-terracotta mb-6">Next Session</p>
-              <p className="text-sm text-warm-gray mb-12 font-medium">{formatDateLong(nextSession.date)}</p>
+              <p className="text-sm text-warm-gray mb-12 font-medium">{formatDateLong(nextSession.date)} · {nextSession.time}</p>
             </FadeIn>
             <FadeIn delay={0.15}>
               <SplitText
@@ -331,7 +333,7 @@ export function HomeClient() {
             </p>
               <Link
                 href="/subscribe"
-                className="group inline-flex items-center gap-3 px-10 py-5 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-all duration-300 hover:gap-5"
+                className="group inline-flex items-center gap-3 px-10 py-5 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-all duration-300"
               >
                 Subscribe <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>

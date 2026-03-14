@@ -27,8 +27,6 @@
 
   /* Animations */
   --animate-grain: grain 0.5s steps(10) infinite;
-  --animate-marquee: marquee 30s linear infinite;
-  --animate-cursor-blink: cursor-blink 1s step-end infinite;
 }
 
 /* ============================
@@ -46,16 +44,6 @@
   70% { transform: translate(0%, 15%); }
   80% { transform: translate(3%, 35%); }
   90% { transform: translate(-10%, 10%); }
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }
 
 @keyframes line-grow {
@@ -180,17 +168,6 @@
   .line-grow {
     transform-origin: left;
     animation: line-grow 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-  }
-
-  /* Marquee */
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee 30s linear infinite;
-  }
-
-  .marquee-track:hover {
-    animation-play-state: paused;
   }
 
   /* Grain Overlay */

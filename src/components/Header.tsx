@@ -56,19 +56,24 @@ export function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`editorial-label transition-colors duration-300 ${
-                  showBackdrop
-                    ? 'text-warm-gray hover:text-ink'
-                    : 'text-parchment/70 hover:text-parchment'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`editorial-label transition-colors duration-300 ${
+                    isActive
+                      ? showBackdrop ? 'text-ink' : 'text-parchment'
+                      : showBackdrop
+                        ? 'text-warm-gray hover:text-ink'
+                        : 'text-parchment/70 hover:text-parchment'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </nav>
 
           {/* Mobile toggle */}
