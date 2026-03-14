@@ -135,7 +135,7 @@ export function SessionsClient() {
                 </div>
               ) : (
                 <div className="py-20 text-center">
-                  <p className="editorial-subhead text-warm-gray-light">
+                  <p className="editorial-subhead text-warm-gray">
                     {tab === 'upcoming'
                       ? 'No upcoming sessions scheduled yet.'
                       : 'No past sessions to show yet.'}

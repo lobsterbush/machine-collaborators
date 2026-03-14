@@ -81,7 +81,7 @@ export function HomeClient() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            <p className="editorial-subhead text-parchment/50 max-w-lg">
+            <p className="editorial-subhead text-parchment/70 max-w-lg">
               What happens when researchers work with AI.
             </p>
             <div className="flex gap-4">
@@ -137,11 +137,12 @@ export function HomeClient() {
       </section>
 
       {/* ========== PULL QUOTE — FULL BLEED TERRACOTTA ========== */}
-      <section className="py-24 md:py-36 bg-terracotta">
+      <section className="py-24 md:py-36 bg-ink">
         <div className="mc-container">
           <FadeIn>
             <blockquote className="max-w-4xl">
-              <p className="font-serif text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.15] text-mc-white">
+              <span className="block font-serif text-6xl md:text-8xl text-terracotta/15 leading-none mb-6 select-none">&ldquo;</span>
+              <p className="font-serif text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.15] text-parchment">
                 Not &ldquo;AI is amazing,&rdquo; not &ldquo;AI is evil,&rdquo; but &ldquo;let&apos;s examine what this relationship actually looks like in scholarly life.&rdquo;
               </p>
             </blockquote>
@@ -249,7 +250,7 @@ export function HomeClient() {
       <section className="py-28 md:py-40 bg-ink text-parchment">
         <div className="mc-container">
           <FadeIn className="mb-20">
-            <p className="editorial-label text-terracotta mb-6">How It Works</p>
+            <p className="editorial-label text-ochre mb-6">How It Works</p>
             <h2 className="editorial-headline text-parchment">Three principles.</h2>
           </FadeIn>
 
@@ -282,7 +283,7 @@ export function HomeClient() {
                   <h3 className="font-serif text-2xl font-bold text-parchment mb-4 transition-colors duration-300 group-hover:text-terracotta-light">
                     {item.title}
                   </h3>
-                  <p className="text-parchment/60 text-base leading-relaxed">
+                  <p className="text-parchment/70 text-base leading-relaxed">
                     {item.body}
                   </p>
                 </div>
@@ -293,7 +294,7 @@ export function HomeClient() {
       </section>
 
       {/* ========== SECOND PULL QUOTE ========== */}
-      <section className="py-24 md:py-36">
+      <section className="py-24 md:py-36 bg-sage-light">
         <div className="mc-container">
           <FadeIn>
             <blockquote className="max-w-4xl mx-auto text-center">
@@ -306,31 +307,31 @@ export function HomeClient() {
       </section>
 
       {/* ========== SPEAK — CALL FOR SPEAKERS ========== */}
-      <section className="py-28 md:py-40 bg-ink">
+      <section className="py-28 md:py-40 bg-cream">
         <div className="mc-container">
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="md:col-span-7">
               <FadeIn>
-                <p className="editorial-label text-terracotta mb-6">Speak</p>
-                <h2 className="editorial-headline text-parchment mb-8">
+                <p className="editorial-label text-ochre mb-6">Speak</p>
+                <h2 className="editorial-headline text-ink mb-8">
                   Share what you&apos;ve learned.
                 </h2>
-                <p className="text-parchment/60 text-lg leading-relaxed mb-6">
+                <p className="text-warm-gray-dark text-lg leading-relaxed mb-6">
                   The best sessions come from researchers with real stories — tools that surprised you, workflows that failed, questions you can&apos;t stop thinking about.
                 </p>
-                <p className="text-parchment/60 text-lg leading-relaxed mb-10">
+                <p className="text-warm-gray-dark text-lg leading-relaxed mb-10">
                   Nominate yourself or suggest someone whose experience would make a great conversation.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="/nominate"
-                    className="group inline-flex items-center gap-2 px-8 py-4 bg-terracotta text-mc-white font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-terracotta-dark transition-all duration-300"
+                    className="group inline-flex items-center gap-2 px-8 py-4 bg-ink text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ink-light transition-all duration-300"
                   >
                     Nominate a Speaker <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                   <Link
                     href="/nominate"
-                    className="group inline-flex items-center gap-2 px-8 py-4 border border-parchment/30 text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-parchment hover:text-ink transition-all duration-300"
+                    className="group inline-flex items-center gap-2 px-8 py-4 border border-ink/20 text-ink font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ink hover:text-parchment transition-all duration-300"
                   >
                     Nominate Yourself
                   </Link>
@@ -350,10 +351,10 @@ export function HomeClient() {
                   ].map((topic) => (
                     <div
                       key={topic}
-                      className="group/tag flex items-center gap-3 py-3 border-b border-parchment/10 cursor-default"
+                      className="group/tag flex items-center gap-3 py-3 border-b border-ink/10 cursor-default"
                     >
-                      <span className="w-2 h-2 rounded-full bg-terracotta/40 transition-colors duration-300 group-hover/tag:bg-terracotta" />
-                      <span className="font-serif text-lg text-parchment/50 transition-colors duration-300 group-hover/tag:text-parchment">
+                      <span className="w-2 h-2 rounded-full bg-ochre/40 transition-colors duration-300 group-hover/tag:bg-ochre" />
+                      <span className="font-serif text-lg text-warm-gray transition-colors duration-300 group-hover/tag:text-ink">
                         {topic}
                       </span>
                     </div>
@@ -366,12 +367,12 @@ export function HomeClient() {
       </section>
 
       {/* ========== CONVENER — ASYMMETRIC ========== */}
-      <section className="py-28 md:py-40 bg-cream">
+      <section className="py-28 md:py-40">
         <div className="mc-container">
           <div className="grid md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-5">
               <FadeIn direction="left">
-                <p className="editorial-label text-terracotta mb-6">Convener</p>
+                <p className="editorial-label text-sage mb-6">Convener</p>
                 <h2 className="editorial-headline text-ink mb-8">Charles Crabtree</h2>
                 <hr className="editorial-rule-accent" />
               </FadeIn>
@@ -407,7 +408,7 @@ export function HomeClient() {
             <h2 className="editorial-display text-parchment mb-8">
               Don&apos;t miss a<br />conversation.
             </h2>
-            <p className="text-parchment/50 text-lg max-w-lg mb-12">
+            <p className="text-parchment/70 text-lg max-w-lg mb-12">
               Session announcements with the topic, speaker, and Zoom link. That&apos;s it.
             </p>
               <Link

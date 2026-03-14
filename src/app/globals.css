@@ -2,24 +2,24 @@
 
 @theme {
   /* Machine Collaborators — "Warm Ink" Palette */
-  --color-ink: #1a1a2e;
-  --color-ink-light: #2d2d44;
-  --color-parchment: #f5f0e8;
-  --color-cream: #faf7f2;
-  --color-terracotta: #c45d3e;
-  --color-terracotta-dark: #a84d32;
-  --color-terracotta-light: #d4775e;
-  --color-ochre: #d4a853;
-  --color-ochre-light: #e0be78;
-  --color-sage: #7a8b6f;
-  --color-sage-light: #95a688;
-  --color-warm-gray: #6b6560;
-  --color-warm-gray-light: #9e9891;
-  --color-warm-gray-dark: #4a4642;
+  --color-ink: #1c1917;
+  --color-ink-light: #292524;
+  --color-parchment: #faf5ee;
+  --color-cream: #f0ebe2;
+  --color-terracotta: #b34a3a;
+  --color-terracotta-dark: #963c30;
+  --color-terracotta-light: #c96b5b;
+  --color-ochre: #c49332;
+  --color-ochre-light: #dab560;
+  --color-sage: #5a7258;
+  --color-sage-light: #e9ece7;
+  --color-warm-gray: #57534e;
+  --color-warm-gray-light: #736d67;
+  --color-warm-gray-dark: #3c3836;
 
   /* Neutrals */
   --color-mc-white: #fffefb;
-  --color-mc-black: #111018;
+  --color-mc-black: #0c0a09;
 
   /* Font families */
   --font-serif: var(--font-playfair);

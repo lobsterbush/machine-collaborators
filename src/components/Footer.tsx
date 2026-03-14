@@ -48,7 +48,7 @@ export function Footer() {
               <br />
               Monash University
             </p>
-            <p className="text-sm text-parchment/50">
+            <p className="text-sm text-parchment/60">
               K-Club Professor, University College, Korea University
             </p>
           </div>
@@ -56,7 +56,7 @@ export function Footer() {
 
         <hr className="my-10 border-parchment/10" />
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-parchment/40">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-parchment/60">
           <p>&copy; {new Date().getFullYear()} Machine Collaborators</p>
           <p>
             Built with intention, not just automation.
