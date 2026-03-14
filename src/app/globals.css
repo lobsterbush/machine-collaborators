@@ -2,24 +2,24 @@
 
 @theme {
   /* Machine Collaborators — "Warm Ink" Palette */
-  --color-ink: #1c1917;
-  --color-ink-light: #292524;
-  --color-parchment: #faf5ee;
-  --color-cream: #f0ebe2;
-  --color-terracotta: #b34a3a;
-  --color-terracotta-dark: #963c30;
-  --color-terracotta-light: #c96b5b;
+  --color-ink: #1a1a2e;
+  --color-ink-light: #2d2d44;
+  --color-parchment: #f5f0e8;
+  --color-cream: #ede7dc;
+  --color-terracotta: #c45d3e;
+  --color-terracotta-dark: #a84d32;
+  --color-terracotta-light: #d4775e;
   --color-ochre: #c49332;
   --color-ochre-light: #dab560;
   --color-sage: #5a7258;
-  --color-sage-light: #e9ece7;
+  --color-sage-light: #eef1ec;
   --color-warm-gray: #57534e;
-  --color-warm-gray-light: #736d67;
-  --color-warm-gray-dark: #3c3836;
+  --color-warm-gray-light: #78716c;
+  --color-warm-gray-dark: #44403c;
 
   /* Neutrals */
   --color-mc-white: #fffefb;
-  --color-mc-black: #0c0a09;
+  --color-mc-black: #111018;
 
   /* Font families */
   --font-serif: var(--font-playfair);
@@ -125,13 +125,13 @@ body {
 .editorial-body {
   font-size: 1.125rem;
   line-height: 1.75;
-  color: var(--color-warm-gray-dark);
+  color: var(--color-ink);
 }
 
 .editorial-body-lg {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   line-height: 1.65;
-  color: var(--color-warm-gray-dark);
+  color: var(--color-ink);
 }
 
 .editorial-label {
