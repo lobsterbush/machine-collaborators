@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Logo } from './Logo'
 
 const navLinks = [
   { href: '/sessions', label: 'Sessions' },
@@ -22,9 +23,10 @@ export function Header() {
           {/* Wordmark */}
           <Link
             href="/"
-            className="font-serif text-lg font-bold tracking-tight text-white"
+            className="text-white"
+            aria-label="Machine Collaborators — Home"
           >
-            MC
+            <Logo size={24} />
           </Link>
 
           {/* Desktop nav */}

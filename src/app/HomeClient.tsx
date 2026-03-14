@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { FadeIn, SplitText, Stagger, StaggerItem, CountUp } from '@/components/Animated'
+import { FadeIn, SplitText, Stagger, StaggerItem } from '@/components/Animated'
 import { getNextSession, getUpcomingSessions } from '@/data/sessions'
 import { useRef } from 'react'
 
@@ -40,10 +40,6 @@ export function HomeClient() {
         ref={heroRef}
         className="relative min-h-screen flex flex-col justify-end bg-ink overflow-hidden -mt-16 pb-16 md:pb-24"
       >
-        {/* Ambient glow */}
-          <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-terracotta/10 rounded-full blur-[160px]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-ochre/8 rounded-full blur-[120px]" />
-
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="mc-container relative z-10">
           <motion.p
             className="editorial-label text-terracotta-light mb-8"
@@ -136,21 +132,7 @@ export function HomeClient() {
         </div>
       </section>
 
-      {/* ========== PULL QUOTE — FULL BLEED TERRACOTTA ========== */}
-      <section className="py-24 md:py-36 bg-ink">
-        <div className="mc-container">
-          <FadeIn>
-            <blockquote className="max-w-4xl">
-              <span className="block font-serif text-6xl md:text-8xl text-terracotta/15 leading-none mb-6 select-none">&ldquo;</span>
-              <p className="font-serif text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.15] text-parchment">
-                The tools are already in the workflow. The question is whether we examine that or pretend otherwise.
-              </p>
-            </blockquote>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ========== NEXT SESSION — DRAMATIC SPOTLIGHT ========== */}
+      {/* ========== NEXT SESSION ========== */}
       {nextSession && (
         <section className="py-28 md:py-40 bg-cream">
           <div className="mc-container">
@@ -174,7 +156,7 @@ export function HomeClient() {
                 href="/subscribe"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-ink text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ink-light transition-colors"
               >
-                Register <ArrowRight size={14} />
+                Get the Zoom Link <ArrowRight size={14} />
               </Link>
             </FadeIn>
           </div>
@@ -274,12 +256,9 @@ export function HomeClient() {
             ].map((item) => (
               <StaggerItem key={item.number}>
                 <div className="group cursor-default">
-                  <CountUp
-                    target={item.number}
-                    className="font-serif text-7xl md:text-9xl font-bold text-parchment/[0.08] block mb-4 leading-none transition-colors duration-500 group-hover:text-terracotta/20"
-                    duration={1.5}
-                    prefix="0"
-                  />
+                  <span className="font-serif text-7xl md:text-9xl font-bold text-parchment/[0.08] block mb-4 leading-none transition-colors duration-500 group-hover:text-terracotta/20">
+                    0{item.number}
+                  </span>
                   <h3 className="font-serif text-2xl font-bold text-parchment mb-4 transition-colors duration-300 group-hover:text-terracotta-light">
                     {item.title}
                   </h3>
@@ -322,20 +301,12 @@ export function HomeClient() {
                 <p className="text-warm-gray-dark text-lg leading-relaxed mb-10">
                   Nominate yourself or suggest a colleague.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link
-                    href="/nominate"
-                    className="group inline-flex items-center gap-2 px-8 py-4 bg-ink text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ink-light transition-all duration-300"
-                  >
-                    Nominate a Speaker <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                  <Link
-                    href="/nominate"
-                    className="group inline-flex items-center gap-2 px-8 py-4 border-2 border-ink text-ink font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ink hover:text-parchment transition-all duration-300"
-                  >
-                    Nominate Yourself
-                  </Link>
-                </div>
+                <Link
+                  href="/nominate"
+                  className="group inline-flex items-center gap-2 px-8 py-4 bg-ink text-parchment font-sans font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ink-light transition-all duration-300"
+                >
+                  Nominate a Speaker <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
               </FadeIn>
             </div>
             <div className="md:col-span-5 hidden md:block">

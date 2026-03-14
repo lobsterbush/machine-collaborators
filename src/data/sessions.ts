@@ -4,6 +4,7 @@ export interface Session {
   speaker: string
   affiliation: string
   date: string // ISO 8601
+  time: string // human-readable with timezone, e.g. '10:00 AM UTC'
   description: string
   status: 'upcoming' | 'past'
   registrationUrl?: string
@@ -18,6 +19,7 @@ export const sessions: Session[] = [
     speaker: 'TBA',
     affiliation: '',
     date: '2026-04-10T10:00:00Z',
+    time: '10:00 AM UTC',
     description:
       'Lightning talks on real workflows. How are researchers actually integrating language models, code assistants, and other AI tools into daily practice?',
     status: 'upcoming',
@@ -28,6 +30,7 @@ export const sessions: Session[] = [
     speaker: 'TBA',
     affiliation: '',
     date: '2026-04-24T10:00:00Z',
+    time: '10:00 AM UTC',
     description:
       'When a model contributes to a paper, who is the author? A discussion of evolving norms around credit, disclosure, and intellectual contribution.',
     status: 'upcoming',
@@ -38,6 +41,7 @@ export const sessions: Session[] = [
     speaker: 'TBA',
     affiliation: '',
     date: '2026-05-08T10:00:00Z',
+    time: '10:00 AM UTC',
     description:
       'Course design when students have access to generative AI. What changes in assessment, learning objectives, and the role of the instructor?',
     status: 'upcoming',
@@ -48,6 +52,7 @@ export const sessions: Session[] = [
     speaker: 'TBA',
     affiliation: '',
     date: '2026-05-22T10:00:00Z',
+    time: '10:00 AM UTC',
     description:
       'Strategies for getting useful output from language models in qualitative coding, survey design, literature review, and data analysis.',
     status: 'upcoming',
@@ -58,6 +63,7 @@ export const sessions: Session[] = [
     speaker: 'TBA',
     affiliation: '',
     date: '2026-06-05T10:00:00Z',
+    time: '10:00 AM UTC',
     description:
       'Case studies of AI failures in research contexts. What breakdowns reveal about the limits of these tools and our dependence on them.',
     status: 'upcoming',
@@ -68,6 +74,7 @@ export const sessions: Session[] = [
     speaker: 'TBA',
     affiliation: '',
     date: '2026-06-19T10:00:00Z',
+    time: '10:00 AM UTC',
     description:
       'Drafting, revision, co-writing. When does AI assistance improve scholarly prose, and when does it flatten it?',
     status: 'upcoming',

@@ -1,8 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <rect width="1200" height="630" fill="#1a1a2e"/>
-  <text x="80" y="200" font-family="Georgia, serif" font-size="20" font-weight="600" letter-spacing="3" fill="#c45d3e" text-transform="uppercase">A GLOBAL CONVERSATION SERIES</text>
-  <text x="80" y="300" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#f5f0e8">Machine</text>
-  <text x="80" y="390" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#f5f0e8">Collaborators</text>
-  <text x="80" y="460" font-family="Arial, sans-serif" font-size="22" fill="#9e9891">What happens when researchers work with AI: the workflows,</text>
-  <text x="80" y="490" font-family="Arial, sans-serif" font-size="22" fill="#9e9891">gains, failures, and new questions that emerge.</text>
+  <!-- Terracotta accent line -->
+  <rect x="80" y="180" width="60" height="3" fill="#c45d3e"/>
+  <text x="80" y="215" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="600" letter-spacing="4" fill="#c45d3e">A GLOBAL CONVERSATION SERIES</text>
+  <text x="80" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700" fill="#f5f0e8">Machine</text>
+  <text x="80" y="420" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-style="italic" font-weight="400" fill="#f5f0e8">Collaborators</text>
+  <text x="80" y="490" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#78716c">What happens when researchers work with AI.</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="550" width="1040" height="1" fill="#f5f0e8" opacity="0.1"/>
+  <text x="80" y="580" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2" fill="#57534e">MACHINECOLLABORATORS.ORG</text>
 </svg>

@@ -24,6 +24,9 @@ function SessionRow({ session }: { session: Session }) {
           <div className="flex items-center gap-2 text-warm-gray mb-2">
             <Calendar size={14} />
             <span className="text-sm font-medium">{formatDate(session.date)}</span>
+            {session.time && (
+              <span className="text-xs text-warm-gray-light">· {session.time}</span>
+            )}
           </div>
           {session.speaker !== 'TBA' && (
             <p className="text-sm font-semibold text-ink">
